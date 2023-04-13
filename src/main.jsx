@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ProtectedRoute from './components/util/ProtectedRoute';
 import Home from './components/home/Home';
 import Auth from './components/auth/Auth'
-import Notification from './components/notification/Notification';
 import Gallery from './components/gallery/Gallery';
 import Blog from './components/blog/Blog';
 import Calculator from './components/calculator/Calculator';
@@ -33,11 +32,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
               <Route path='/home' element={
                   <ProtectedRoute>
                       <Home />
-                  </ProtectedRoute>
-              } />
-              <Route path='/notification' element={
-                  <ProtectedRoute>
-                      <Notification />
                   </ProtectedRoute>
               } />
               <Route path='/blog' element={
