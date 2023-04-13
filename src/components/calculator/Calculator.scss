@@ -1,0 +1,64 @@
+@font-face {
+    font-family: 'Typed';
+    src: url('../../assets/fonts/TypoDigitDemo-VG9lV.ttf') format('truetype'),
+        url('../../assets/fonts/TypoDigitDemoItalic-JRogn.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.app__calculate__container{
+    font-family: 'Typed', sans-serif;
+    height: 100vh;
+}
+
+.calculate-operation-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    .calculate-input {
+        width: fit-content;
+        padding: 2rem;
+
+    }
+
+    .calculate-input:focus {
+        outline-color: var(--secondary-color);
+    }
+
+    select {
+        padding: 2rem;
+    }
+}
+
+.screen {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+    width: 50%;
+    height: 20rem;
+    margin: 5rem auto;
+    background-color: #ECF5FF;
+    -webkit-box-shadow: 0 4px 2px rgba(0, 0, 0, 0.2) inset, 0 -4px 2px rgba(0, 0, 0, 0.2) inset, 0 4px 2px 2px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 4px 2px rgba(0, 0, 0, 0.2) inset, 0 -4px 2px rgba(0, 0, 0, 0.2) inset, 0 4px 2px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 2px rgba(0, 0, 0, 0.2) inset, 0 -4px 2px rgba(0, 0, 0, 0.2) inset, 0 4px 2px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#D7EAFF), to(#FFFFFF));
+    background-image: -webkit-linear-gradient(top, #D7EAFF, #ECF5FF, white);
+    background-image: -moz-linear-gradient(top, #D7EAFF, #ECF5FF, white);
+    background-image: -ms-linear-gradient(top, #D7EAFF, #ECF5FF, white);
+    background-image: -o-linear-gradient(top, #D7EAFF, #ECF5FF, white);
+    background-image: linear-gradient(180deg, #D7EAFF, #ECF5FF, white);
+    padding: 7px 3px 5px 3px;
+
+    span {
+        font-size: 10rem;
+        margin: 0 2rem 0  0;
+        color: var(--secondary-color);
+    }
+
+    @media screen and (max-width:768px) {
+        width: 80%;
+    }
+}
