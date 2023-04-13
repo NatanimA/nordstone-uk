@@ -50,8 +50,9 @@ const Auth = () => {
     e.preventDefault()
     const { email,password,name} = userRegister;
     try{
-        const user = await createUserWithEmailAndPassword(auth,email,password);
-        console.log(user)
+        const {user} = await createUserWithEmailAndPassword(auth,email,password);
+        localStorage.setItem('token',JSON.stringify(user.accessToken))
+        navigate("/")
     }catch(err){
         console.log(err)
     }
