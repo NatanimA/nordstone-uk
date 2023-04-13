@@ -1,0 +1,17 @@
+.profile__container {
+    margin: 4rem auto;
+}
+
+.camera__capture_btn {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.btn-primary {
+    background-color: #4cd964;
+}
+
+.btn-post {
+    background-color: var(--secondary-color);
+}
