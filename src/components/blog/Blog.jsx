@@ -13,7 +13,7 @@ import { allEmojis } from '../../constants/constants';
 const Blog = () => {
   const [blogDetails,setBlogDetails] = useState({title:"",content:""})
   const [blogs,setBlogs] = useState([])
-  const [message,setMessage] = useState("");
+  const [message,setMessage] = useState("Blog is live" + allEmojis[Math.floor(Math.random() * allEmojis.length)]);
   const notify = () => toast(message)
 
   useEffect(() => {
@@ -60,7 +60,6 @@ const Blog = () => {
         title:"",
         content:""
       })
-      setMessage("Blog is live" + allEmojis[Math.floor(Math.random() * allEmojis.length)])
       notify()
     } catch (err) {
       setMessage(err)
