@@ -1,6 +1,6 @@
 import { useState,useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
-
+import Navbar from "./components/navbar/Navbar"
 
 import Splash from './components/splash/Splash'
 import Auth from './components/auth/Auth'
@@ -28,7 +28,7 @@ function App() {
 
   return (
     <>
-      {isLoggedIn}
+      {isLoggedIn && <Navbar />}
       <Outlet />
 
     </>
