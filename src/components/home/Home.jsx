@@ -7,15 +7,8 @@ import "./Home.scss"
 
 const Home = () => {
 
-  const [loading, setLoading] = useState(null);
-
   const notify = () => toast(notification[Math.floor(Math.random() * notification.length)] + allEmojis[Math.floor(Math.random() * allEmojis.length)]);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(true)
-    },3000)
-  },[])
 
   return (
     <>
@@ -27,7 +20,7 @@ const Home = () => {
           <button className="custom-btn btn-5" onClick={notify}><span>Get Notifications</span></button>
           <ToastContainer />
         </div>
-        {loading ? <div id="splash">
+        <div id="splash">
           <div className="anim">
             <div id="loader">
               <svg version="1.1" width="60px" height="70px" viewBox="0 0 60 70">
@@ -55,7 +48,7 @@ const Home = () => {
               </svg>
             </div>
           </div>
-        </div> : null}
+        </div>
 
     </>
   )
