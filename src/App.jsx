@@ -2,8 +2,9 @@ import { useState,useEffect } from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from "./components/navbar/Navbar"
 
-import Splash from './components/splash/Splash'
-import Auth from './components/auth/Auth'
+
+
+import "./App.scss"
 
 
 function App() {
@@ -29,7 +30,10 @@ function App() {
   return (
     <>
       {isLoggedIn && <Navbar />}
-      <Outlet />
+      <div className='app_main_container'>
+          <Outlet />
+      </div>
+
 
     </>
 
