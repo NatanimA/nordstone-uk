@@ -1,7 +1,10 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app';
+import { getDatabase } from "firebase/database";
 import { getAnalytics } from "firebase/analytics";
+import { getStorage } from "firebase/storage"
 import { getAuth } from "firebase/auth"
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -14,11 +17,18 @@ const firebaseConfig = {
   storageBucket: "nordstone-e873b.appspot.com",
   messagingSenderId: "26400236585",
   appId: "1:26400236585:web:850ce2b3c3def477886838",
-  measurementId: "G-W3EZSL90WT"
+  measurementId: "G-W3EZSL90WT",
+  databaseURL: "https://nordstone-e873b-default-rtdb.firebaseio.com"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
+
 export const auth = getAuth(app)
+export const storage = getStorage()
+export const database = getDatabase(app);
+
+
+
