@@ -3,6 +3,13 @@
 <div align="center">
 
   <h3><b>Nordstone</b></h3>
+  
+  ![auth](https://user-images.githubusercontent.com/66979348/232036575-d3e0e34e-af8c-4a5e-aa38-e9e0885eb58d.JPG)
+![calculator](https://user-images.githubusercontent.com/66979348/232036579-e748c305-0075-4412-a74f-c7a2b1f354ad.JPG)
+![blogs](https://user-images.githubusercontent.com/66979348/232036580-c3e88506-b191-4f78-b1a5-ed5c3048f244.JPG)
+![gallery](https://user-images.githubusercontent.com/66979348/232036582-aa554801-41fa-4711-a256-79573ebbdf75.JPG)
+![home](https://user-images.githubusercontent.com/66979348/232036587-bcc97c72-2c34-4cee-9291-9e6046495c73.JPG)
+
 
 </div>
 
