@@ -30,11 +30,6 @@
 }
 
 
-.blog-container {
-    height: 100vh;
-    padding-bottom: 80rem;
-}
-
 .blog-item{
     display: flex;
     padding: 50px;
@@ -49,6 +44,7 @@
     text-decoration: none;
     -webkit-transition: all .3s ease;
     transition: all .3s ease;
+    height: 100%;
 
 }
 
