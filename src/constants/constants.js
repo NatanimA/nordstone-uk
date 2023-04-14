@@ -1,3 +1,5 @@
+export const SERVER_URL = " https://tame-red-jellyfish-wrap.cyclic.app"
+
 export const videoConstraints = {
   width: 400,
   height: 400,
