@@ -17,8 +17,7 @@ const Gallery = () => {
   const [photoMode,setPhotoMode] = useState(false)
   const [picture,setPhoto] = useState(null)
   const [photoList,setPhotoList] = useState([])
-  const [message,setMessage] = useState("")
-  const notify =() => toast(message)
+  const notify =(message) => toast(message)
 
   const listRef = ref(storage, 'images/');
 
@@ -56,13 +55,11 @@ const Gallery = () => {
 
         uploadBytes(storageRef, image).then((snapshot) => {
             fetchImageUrls()
-            setMessage("Photo is live." + allEmojis[Math.floor(Math.random() * allEmojis.length)])
         });
-        notify()
+        notify("Photo is live." + allEmojis[Math.floor(Math.random() * allEmojis.length)])
         setPhotoMode(false)
     }catch(err){
-        setMessage(err)
-        notify()
+        notify(err)
     }
 
   }
@@ -76,10 +73,10 @@ const Gallery = () => {
         const storageRef = ref(storage,'images/' + uuidv4())
         await uploadBytes(storageRef, picture);
         fetchImageUrls()
-        setMessage("Photo is live." + allEmojis[Math.floor(Math.random() * allEmojis.length)])
         setPhoto(null)
+        notify("Photo is live." + allEmojis[Math.floor(Math.random() * allEmojis.length)])
     }catch(err){
-      setMessage(err)
+      notify(err)
     }
 
   }
