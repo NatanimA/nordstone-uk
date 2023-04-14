@@ -9,4 +9,9 @@ const dataURItoBlob = (dataURI) => {
   return new Blob([ab], { type: mimeString });
 }
 
+export const validatePassword = (password) => {
+  const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+=[\]{}|\\,.?<>~`])(?=.{8,})/;
+  return regex.test(password);
+}
+
 export default dataURItoBlob
