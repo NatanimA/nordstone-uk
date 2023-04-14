@@ -3,6 +3,10 @@ import React, { useState } from 'react'
 import { HiMenuAlt4,HiX } from 'react-icons/hi'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { signOut } from "firebase/auth"
+import { auth } from "../../constants/firebase-config"
+import { onAuthStateChanged } from 'firebase/auth'
+import { useNavigate } from 'react-router-dom'
 
 
 import './Navbar.scss'
@@ -11,6 +15,19 @@ import './Navbar.scss'
 const Navbar = () => {
 
   const[toggle,setToggle] = useState(false);
+  const navigate = useNavigate()
+
+  const handleSignOut = () => {
+    localStorage.removeItem('token')
+    signOut(auth)
+  }
+
+  onAuthStateChanged(auth,(currentUser) => {
+    const token = localStorage.getItem('token')
+    if (!token){
+        navigate('auth/login')
+    }
+  })
 
   return (
     <nav className='app__navbar'>
@@ -24,6 +41,9 @@ const Navbar = () => {
             <Link to={`/${item}`}>{item}</Link>
           </li>
         })}
+        <li onClick={handleSignOut}  className='app__flex p-text sign__out__btn'>
+          Sign out
+        </li>
       </ul>
 
       <div className='app__navbar-menu'>
@@ -42,6 +62,9 @@ const Navbar = () => {
                   <Link to={`/${item}`}  onClick={() => setToggle(false)}>{item}</Link>
                 </li>
               })}
+                <li onClick={handleSignOut} style={{fontSize:'1rem',cursor:'pointer'}} className='app__flex p-text'>
+                  Sign out
+                </li>
               </ul>
 
             </motion.div>
