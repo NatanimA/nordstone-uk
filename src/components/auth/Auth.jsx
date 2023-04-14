@@ -5,41 +5,40 @@ import { createUserWithEmailAndPassword,onAuthStateChanged,signInWithEmailAndPas
 import { useNavigate } from 'react-router-dom'
 import { auth } from '../../constants/firebase-config'
 import Splash from '../splash/Splash'
+import { validatePassword } from '../../constants/util-func'
 import './Auth.scss'
 
 
 
 const Auth = () => {
   const [slider,setSlider] = useState(true);
-  const [userRegister,setUserRegister] = useState({name:'',email:'',password:''});
+  const [userRegister,setUserRegister] = useState({email:'',password:''});
   const [userLogin,setUserLogin] = useState({email:'',password:''});
-  const [user,setUser] = useState({})
   const [error,setError] = useState(null)
+  const [passwordError, setPasswordError] = useState('');
   const navigate = useNavigate()
 
-//   onAuthStateChanged(auth,(currentUser) => {
-//     setUser(currentUser)
-//     localStorage.setItem('token',JSON.stringify(user.accessToken))
-//   })
 
   const [loading,setLoading] = useState(false)
   useEffect(() => {
       setLoading(true)
       setTimeout(() => {
         setLoading(false)
-      },8000)
+      },4000)
   }, []);
 
 
 
   const handleRegisterInput = (e) => {
-    setUserRegister(
-            {...userLogin,
+    setPasswordError('')
+    setUserRegister((pv) => {
+            return {...pv,
             [e.target.name]: e.target.value}
-        )
+    })
   }
 
   const handleLoginInput = (e) => {
+    setError(null)
     setUserLogin(
             {...userLogin,
             [e.target.name]: e.target.value}
@@ -48,13 +47,17 @@ const Auth = () => {
 
   const handleUserRegistration = async (e) => {
     e.preventDefault()
-    const { email,password,name} = userRegister;
+    const { email,password} = userRegister;
+    if (!validatePassword(password)) {
+        setPasswordError('Password must contain at least one uppercase letter, one lowercase letter, one number, one special character, and be at least 8 characters long.');
+        return;
+    }
     try{
         const {user} = await createUserWithEmailAndPassword(auth,email,password);
         localStorage.setItem('token',JSON.stringify(user.accessToken))
         navigate("/")
     }catch(err){
-        console.log(err)
+        setPasswordError("Email is already taken.")
     }
   }
 
@@ -66,7 +69,6 @@ const Auth = () => {
         localStorage.setItem('token',JSON.stringify(user.accessToken))
         navigate("/")
     }catch(error) {
-        console.log("Error: ",error)
         setError(error)
     }
   }
@@ -98,7 +100,7 @@ const Auth = () => {
                                 </a>
                             </div>
                             <span>or use your email for registration</span>
-                            <input onChange={handleRegisterInput} name='name' type="text" placeholder="Name" required/>
+                            {passwordError ? <span style={{color:'#FF0000'}}>{passwordError}</span> : null}
                             <input onChange={handleRegisterInput} name='email' type="email" placeholder="Email" required/>
                             <input onChange={handleRegisterInput} name='password' type="password" placeholder="Password" required/>
                             <button type='submit'>Sign Up</button>
@@ -119,6 +121,7 @@ const Auth = () => {
                                 </a>
                             </div>
                             <span>or use your account</span>
+                            {error ? <span style={{color:'#FF0000'}}>Email or password is not correct</span> : null}
                             <input onChange={handleLoginInput} name='email'  type="email" placeholder="Email" required/>
                             <input onChange={handleLoginInput} name='password'  type="password" placeholder="Password" required/>
                             <a href="#">Forgot your password?</a>
@@ -130,12 +133,12 @@ const Auth = () => {
                             <div className="overlay-panel overlay-left">
                                 <h1>Welcome Back!</h1>
                                 <p>To keep connected with us please login with your personal info</p>
-                                <button className="ghost" id="signIn" onClick={handleOverLay}>Sign In</button>
+                                <button className="ghost btn-post" style={{backgroundColor:'#fff',color:"#000"}}  id="signIn" onClick={handleOverLay}>Sign In</button>
                             </div>
                             <div className="overlay-panel overlay-right">
                                 <h1>Hello, Friend!</h1>
                                 <p>Enter your personal details and start journey with us</p>
-                                <button className="ghost" id="signUp" onClick={handleOverLay}>Sign Up</button>
+                                <button className="ghost btn-post" style={{backgroundColor:'#fff',color:"#000"}} id="signUp" onClick={handleOverLay}>Sign Up</button>
                             </div>
                         </div>
                     </div>
