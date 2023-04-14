@@ -42,13 +42,10 @@ const Blog = () => {
   }
 
   const handleBlogPost = async (e) => {
-    console.log(e)
     const form = document.getElementsByTagName('form')
     e.preventDefault()
     try {
       const blogListRef = ref(database, 'blogs');
-      const time = new Date()
-      console.log(blogListRef)
       const newBlogRef = push(blogListRef);
       await set(newBlogRef, {
           ...blogDetails
