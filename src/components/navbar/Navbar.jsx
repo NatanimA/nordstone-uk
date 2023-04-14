@@ -47,11 +47,12 @@ const Navbar = () => {
       </ul>
 
       <div className='app__navbar-menu'>
-          <HiMenuAlt4 onClick={() => setToggle(true)}/>
+          <HiMenuAlt4 onClick={() => {
+            setToggle(true)}}/>
 
           {toggle && (
             <motion.div
-              whileInView={{x:[300,0]}}
+              whileInView={{x:[100,0]}}
               transition={{duration:0.85,ease:'easeOut'}}
             >
 
