@@ -1,5 +1,8 @@
 import React,{useState} from 'react'
+import axios from 'axios'
 
+
+import { SERVER_URL } from '../../constants/constants'
 import "./Calculator.scss"
 
 const Calculator = () => {
@@ -16,7 +19,6 @@ const Calculator = () => {
   }
 
   const handleChangeOp = e => {
-      console.log(e.target.value)
       setMathDetails((pv) => {
         return {
           ...pv,
@@ -26,17 +28,10 @@ const Calculator = () => {
 
   }
 
-  const handleCalculate = () => {
+  const handleCalculate = async () => {
       if(mathDetails.a && mathDetails.b && mathDetails.op){
-        if(mathDetails.op === "+"){
-          setResult(parseInt(mathDetails.a) + parseInt(mathDetails.b))
-        }
-        if(mathDetails.op === "-"){
-          setResult(parseInt(mathDetails.a) - parseInt(mathDetails.b))
-        }
-        if(mathDetails.op === "*"){
-          setResult(parseInt(mathDetails.a) * parseInt(mathDetails.b))
-        }
+        const response = await axios.post(SERVER_URL,mathDetails)
+        setResult(response.data.data)
       }
   }
 
