@@ -16,30 +16,30 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter basename={'/'}>
       <Routes>
-          <Route path='/auth/login' element={<Auth />} />
+          <Route path='https://nordstone.netlify.app/auth/login' element={<Auth />} />
           <Route path="/" element={<App />}>
-              <Route path='' element={
+              <Route path='https://nordstone.netlify.app/' element={
                   <ProtectedRoute>
                       <Home />
                   </ProtectedRoute>
               } />
 
-              <Route path='gallery' element={
+              <Route path='https://nordstone.netlify.app/gallery' element={
                   <ProtectedRoute>
                       <Gallery />
                   </ProtectedRoute>
               } />
-              <Route path='/home' element={
+              <Route path='https://nordstone.netlify.app/home' element={
                   <ProtectedRoute>
                       <Home />
                   </ProtectedRoute>
               } />
-              <Route path='/blog' element={
+              <Route path='https://nordstone.netlify.app/blog' element={
                   <ProtectedRoute>
                       <Blog />
                   </ProtectedRoute>
               } />
-              <Route path='/calculator' element={
+              <Route path='https://nordstone.netlify.app/calculator' element={
                   <ProtectedRoute>
                       <Calculator />
                   </ProtectedRoute>
