@@ -12,22 +12,6 @@
     z-index: 2;
 }
 
-.app__navbar-logo {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-
-    img {
-        width: 90px;
-        height: 40px;
-
-        @media screen and (min-width: 2000px) {
-            width: 180px;
-            height: 40px;
-        }
-    }
-}
-
 
 .app__navbar-links {
     flex: 1;
@@ -161,3 +145,29 @@
         display: none;
     }
 }
+
+.sign__out__btn {
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        font-size: 1.5rem;
+    }
+}
+
+.app__flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.p-text {
+    font-size: 0.8rem;
+    text-align: left;
+    color: var(--gray-color);
+    line-height: 1.5;
+
+    @media screen and (min-width: 2000px) {
+        font-size: 1.75rem;
+    }
+}
+
+

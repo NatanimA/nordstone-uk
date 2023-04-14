@@ -14,4 +14,8 @@
 
 .btn-post {
     background-color: var(--secondary-color);
+
+    &:hover {
+        cursor:pointer;
+    }
 }
