@@ -30,7 +30,7 @@ function App() {
   return (
     <>
       {isLoggedIn && <Navbar />}
-      <div className='app_main_container'>
+      <div className='app__container'>
           <Outlet />
       </div>
 
